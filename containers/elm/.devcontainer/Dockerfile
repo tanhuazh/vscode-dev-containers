@@ -13,7 +13,8 @@ ARG USER_GID=$USER_UID
 
 # Install elm, elm-test and elm-format
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && sudo -u ${USERNAME} npm install --global \
+	&& export NODE_TLS_REJECT_UNAUTHORIZED=0 \
+    && npm install --global \
     elm@${ELM_VERSION} \
     elm-test@${ELM_TEST_VERSION} \
     elm-format@${ELM_FORMAT_VERSION} \
