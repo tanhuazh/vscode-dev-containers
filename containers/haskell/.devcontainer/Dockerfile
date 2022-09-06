@@ -27,6 +27,9 @@ RUN apt-get update \
         libtinfo-dev \
         zlib1g-dev \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+	
+# $HOME/.curlrc not work
+RUN echo insecure >> /home/vscode/.curlrc
 
 # Install latest GHCup in the non-root user home
 USER $USERNAME
